@@ -416,6 +416,13 @@ Also out: UCP, AP2, x402, subscriptions, digital goods, returns.
 - [ ] Where PS cart rules land: `items_discount` or `discount`?
 - [ ] Specific prices and customer groups with no logged-in customer — which
       group does an agent cart get?
+      → Spike A (`spikes/spike-a-headless-cart.php`, 2026-08-17): quand un
+      `id_customer` réel est disponible, remonter `Context::customer`
+      explicitement (au lieu du guest vide que `config.inc.php` pose par
+      défaut en CLI) suffit — le panier hérite du vrai `id_default_group` du
+      client et le total TTC calculé hors front-office est correct. Ça
+      prouve le mécanisme, pas la politique : la question reste ouverte pour
+      le cas où l'agent n'a *aucun* customer à fournir. À trancher en Phase 4.
 - [ ] `capabilities` — minimum viable object to declare
 - [ ] `handler_id` registry: free-form or enumerated?
 - [ ] Idempotency: replay window, and what to return on a key collision with a
@@ -430,4 +437,5 @@ Also out: UCP, AP2, x402, subscriptions, digital goods, returns.
 | Date | Change |
 |---|---|
 | — | Initial notes against `2026-04-17` |
+| 2026-08-17 | §11: partial answer on customer group for agent carts, from Spike A |
  

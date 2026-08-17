@@ -9,3 +9,6 @@ config/parameters.php
 .idea/
 .vscode/
 .DS_Store
+
+# Spike run state (per-machine, not portable — see spikes/*.php)
+spikes/.*.state
