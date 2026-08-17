@@ -295,6 +295,13 @@ expires_at          string              // ISO 8601
 6. `allowance.merchant_id` must equal the configured merchant id.
 Fail any of 2–6 → decline cleanly with a `MessageError`. Never attempt the
 charge and let it fail at the PSP.
+
+→ Spike B (`spikes/spike-b-stripe-spt.php`, 2026-08-17), confirmed against a
+real Stripe SPT round-trip: over-cap gives `InvalidRequestException` 400
+with **no short `code`**, English `message` only ("The requested amount is
+greater than the remaining amount capturable..."). No stable code to switch
+on — confirms rule 2 has to be a self-check before the call, not a Stripe
+error handled after the fact.
  
 **The gap that will bite:** recalculated French VAT plus the selected carrier
 cost can exceed what the agent quoted. That is a ceiling breach, not a bug.
@@ -438,4 +445,5 @@ Also out: UCP, AP2, x402, subscriptions, digital goods, returns.
 |---|---|
 | — | Initial notes against `2026-04-17` |
 | 2026-08-17 | §11: partial answer on customer group for agent carts, from Spike A |
+| 2026-08-17 | §7: Stripe SPT over-cap has no short error code, from Spike B |
  

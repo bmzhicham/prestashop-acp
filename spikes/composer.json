@@ -1,0 +1,9 @@
+{
+    "name": "acp/spikes",
+    "description": "Isolated spike scripts, not part of the module composer.json",
+    "type": "project",
+    "minimum-stability": "stable",
+    "require": {
+        "stripe/stripe-php": "^21.2"
+    }
+}

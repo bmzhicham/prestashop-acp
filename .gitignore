@@ -12,3 +12,6 @@ config/parameters.php
 
 # Spike run state (per-machine, not portable — see spikes/*.php)
 spikes/.*.state
+
+# spikes/ is its own isolated Composer project, separate from the module's.
+spikes/vendor/
