@@ -1,0 +1,11 @@
+/vendor/
+composer.lock
+.env
+.env.local
+config/parameters.php
+/var/
+/logs/
+*.log
+.idea/
+.vscode/
+.DS_Store
